@@ -19,15 +19,19 @@ This is the step by step explanation:
 
 • Steps 1 and 2 are identical to Task 2, where A and B exchange their e(a) and e(b). After
 Step 2, both A and B can compute the key K.
+
 • B then signs the pair of integers e(b), e(a) with his private key. (See below for signatures
 and keys.) This signature is then encrypted with DESede with key K, in ECB mode.
 Finally, B sends the value e(b) and the encrypted signature to A.
+
 • A then attempts to decrypt the encrypted signature, and verify the signature with B’s
 public key. If the decryption fails, or the signature does not verify, A terminates the
 program.
+
 • Otherwise, A signs the pair of integers e(a), e(b) with her private key. This signature is
 then encrypted with DESede with key K, in ECB mode. A sends this encrypted signature
 to B.
+
 • Finally, when B received the above, he attempts to decrypt the encrypted signature,
 and verify the signature. Again B should terminate the connection if the decryption or
 signature verification fails.
